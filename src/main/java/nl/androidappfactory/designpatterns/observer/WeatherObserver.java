@@ -8,6 +8,8 @@ public class WeatherObserver implements Observer {
 	public WeatherObserver(Subject subject, String observerName) {
 
 		this.observerName = observerName;
+
+		// add observer to subject, but no need to hold subject in class var
 		subject.addObserver(this);
 	}
 
