@@ -6,25 +6,25 @@ public class App {
 
 		System.out.println("\nGet databaseService: ");
 		Service service = ServiceLocator.getService("databaseService");
-		showService(service);
+		runService(service);
 
 		System.out.println("\nGet databaseService: ");
 		service = ServiceLocator.getService("databaseService");
-		showService(service);
+		runService(service);
 
 		System.out.println("\nGet messagingService: ");
 		service = ServiceLocator.getService("messagingService");
-		showService(service);
+		runService(service);
 
 		System.out.println("\nGet unknownService: ");
 		service = ServiceLocator.getService("unknownService");
-		showService(service);
+		runService(service);
 	}
 
-	private static void showService(Service service) {
+	private static void runService(Service service) {
 
 		if (service != null) {
-			System.out.println("Service found, name: " + service.getName());
+			service.excecute();
 		} else {
 			System.out.println("Service not found");
 		}

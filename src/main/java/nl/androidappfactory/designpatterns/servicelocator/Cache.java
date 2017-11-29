@@ -22,10 +22,20 @@ public class Cache {
 		return null;
 	}
 
-	public void addService(Service service) {
-		if (service != null) {
+	public void addService(Service newService) {
+		if (newService != null) {
+
+			boolean exists = false;
+
+			for (Service service : listOfServices) {
+				if (service.getName().equalsIgnoreCase(newService.getName())) {
+					exists = true;
+				}
+			}
 			System.out.println("Adding service to cache");
-			listOfServices.add(service);
+			if (!exists) {
+				listOfServices.add(newService);
+			}
 		} else {
 			throw new IllegalArgumentException("Service cannot be null");
 		}
